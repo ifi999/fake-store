@@ -85,6 +85,6 @@
 ---
 
 ## Table
-![스크린샷 2023-01-24 오전 10 05 40](https://user-images.githubusercontent.com/109199387/214192135-5a7e58d9-adaf-489d-aadb-e64e59b704d3.png)
+![스크린샷 2023-01-24 오후 12 28 12](https://user-images.githubusercontent.com/109199387/214206505-2866a3c7-00d4-4395-9e69-78917060c7d3.png)
 
 
