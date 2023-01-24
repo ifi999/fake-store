@@ -1,14 +1,14 @@
 package ifi999.fakestore.products.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import ifi999.fakestore.common.entity.BaseUpdateEntity;
+
+import javax.persistence.*;
 
 @Entity
-public class Products {
+public class Products extends BaseUpdateEntity {
 
     @Id
+    @Column(name = "product_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -19,5 +19,9 @@ public class Products {
     private String description;
 
     private String image;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 }
