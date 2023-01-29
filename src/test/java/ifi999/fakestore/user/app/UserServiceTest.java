@@ -41,6 +41,41 @@ public class UserServiceTest {
         assertThat(user.getAddress().getGeolocation().getLatitude()).isEqualTo(1234.5678f);
     }
 
+    @Test
+    public void 유저조회() {
+        //given
+        UserDto userDto = 조회용유저생성();
+        Long userId = userDto.getId();
+
+        //when
+        UserDto user = userService.getUser(userId);
+
+        //then
+        assertThat(userId).isEqualTo(user.getId());
+    }
+
+    // TODO - 이거 beforeEach 같은 곳에 넣는데, 유저생성이랑 충돌안나게 만들기
+    public UserDto 조회용유저생성() {
+        return userService.createUser(조회용유저정보_생성());
+    }
+
+    private CreateUserRequest 조회용유저정보_생성() {
+        return CreateUserRequest.builder()
+                .email("user1@email.com")
+                .username("USERNAME1")
+                .password("1234")
+                .phone("010-0000-0001")
+                .street("STREET1")
+                .zipcode("ZIPCODE1")
+                .number(12345)
+                .city("CITY1")
+                .latitude(1234.5678f)
+                .longitude(9876.5432f)
+                .firstname("FIRST1")
+                .lastname("LAST1")
+                .build();
+    }
+
     private CreateUserRequest 유저정보_생성() {
         return CreateUserRequest.builder()
                 .email("user@email.com")
